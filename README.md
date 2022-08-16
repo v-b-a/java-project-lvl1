@@ -6,3 +6,8 @@
 ### Even Game
 ![image](https://user-images.githubusercontent.com/65037467/184843656-53bf6d69-e4b2-4fa2-a45f-121b4b37dc04.png)
 ![image](https://user-images.githubusercontent.com/65037467/184843788-294348d5-62d8-4b17-b98a-84b2126bdb5d.png)
+
+### Calc Game
+![image](https://user-images.githubusercontent.com/65037467/184921136-4834c29a-6722-48aa-bca2-d6724d1b1f57.png)
+![image](https://user-images.githubusercontent.com/65037467/184921339-9df3eeb7-9a2a-46d5-b240-013c46d838c8.png)
+
