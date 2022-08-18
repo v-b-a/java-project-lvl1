@@ -1,9 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
 
@@ -20,6 +17,8 @@ public class Engine {
             GCD.exercise();
         } else if (gameNumber == 5) {
             Progression.exercise();
+        } else if (gameNumber == 6) {
+            Progression.exercise();
         }
         while (successfulAttemptCount < countOfRound) {
             if (gameNumber == 2) {
@@ -30,6 +29,8 @@ public class Engine {
                 correctAnswer = GCD.question();
             } else if (gameNumber == 5) {
                 correctAnswer = Progression.question();
+            } else if (gameNumber == 6) {
+                correctAnswer = Prime.question();
             }
             System.out.print("Your answer: ");
             Scanner scanner = new Scanner(System.in);
