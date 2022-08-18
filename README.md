@@ -19,3 +19,7 @@
 ![image](https://user-images.githubusercontent.com/65037467/185350492-289cb4a2-6b2f-4f4f-80ac-50febd821dc7.png)
 ![image](https://user-images.githubusercontent.com/65037467/185350675-a46917a2-e019-4afe-93ef-8e985ecaf11a.png)
 
+### Prime Game
+![image](https://user-images.githubusercontent.com/65037467/185371127-86cbf551-316c-4699-84a8-ad33229830c4.png)
+![image](https://user-images.githubusercontent.com/65037467/185371345-93c98369-ebc4-4c18-987a-b7bca87a0fa5.png)
+
