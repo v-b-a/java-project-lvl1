@@ -5,6 +5,7 @@ public class Calc {
         System.out.println("What is the result of the expression?");
     }
     public static String question() {
+
         int randomNumber1 = (int) Math.floor(Math.random() * 100);
         int randomNumber2 = (int) Math.floor(Math.random() * 100);
         int randomOperationNumber = (int) Math.floor(Math.random() * (3-1+1)+1);
@@ -22,5 +23,10 @@ public class Calc {
         }
         System.out.println("Question: " + result);
         return correctAnswerInt+"";
+//        StringBuilder result = new StringBuilder();
+//        for (int i = 0; i < 10; i++) {
+//            int randomNumber = (int) Math.floor(Math.random()*100);
+//            result.append(randomNumber + " ");
+//        }
     }
 }
