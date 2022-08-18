@@ -5,69 +5,59 @@ import hexlet.code.games.*;
 import java.util.Scanner;
 
 public class Engine {
-    public static void game(int gameNumber) {
+    public static void game(String gameName) {
         String correctAnswer = null;
-        int successfulAttemptCount = 0;
+        int currentRound = 1;
         int countOfRound = 3;
-        if (gameNumber == 2) {
-            Even.exercise();
-        } else if (gameNumber == 3) {
-            Calc.exercise();
-        } else if (gameNumber == 4) {
-            GCD.exercise();
-        } else if (gameNumber == 5) {
-            Progression.exercise();
-        } else if (gameNumber == 6) {
-            Progression.exercise();
+        switch (gameName) {
+            case "Even":
+                Even.printExercise();
+                break;
+            case "Calc":
+                Calc.printExercise();
+                break;
+            case "GCD":
+                GCD.printExercise();
+                break;
+            case "Progression":
+                Progression.printExercise();
+                break;
+            case "Prime":
+                Prime.printExercise();
+                break;
         }
-        while (successfulAttemptCount < countOfRound) {
-            if (gameNumber == 2) {
-                correctAnswer = Even.question();
-            } else if (gameNumber == 3) {
-                correctAnswer = Calc.question();
-            } else if (gameNumber == 4) {
-                correctAnswer = GCD.question();
-            } else if (gameNumber == 5) {
-                correctAnswer = Progression.question();
-            } else if (gameNumber == 6) {
-                correctAnswer = Prime.question();
+        while (currentRound <= countOfRound) {
+            switch (gameName) {
+                case "Even":
+                    correctAnswer = Even.question();
+                    break;
+                case "Calc":
+                    correctAnswer = Calc.question();
+                    break;
+                case "GCD":
+                    correctAnswer = GCD.question();
+                    break;
+                case "Progression":
+                    correctAnswer = Progression.question();
+                    break;
+                case "Prime":
+                    correctAnswer = Prime.question();
+                    break;
             }
             System.out.print("Your answer: ");
             Scanner scanner = new Scanner(System.in);
-            String userChoice = scanner.nextLine();
-            if (correctAnswer.equals(userChoice)) {
+            String userAnswer = scanner.nextLine();
+            if (correctAnswer.equals(userAnswer)) {
                 System.out.println("Correct");
-                successfulAttemptCount++;
+                currentRound++;
             } else {
-                System.out.println("'" + userChoice + "'" + " is wrong answer ;(. Correct answer was " + "'" + correctAnswer + "'");
+                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was " + "'" + correctAnswer + "'");
                 System.out.println("Let's try again, " + Cli.getUserName() + "!");
                 break;
             }
         }
-        if (successfulAttemptCount == 3) {
+        if (currentRound == 3) {
             System.out.println("Congratulations, " + Cli.getUserName() + "!");
         }
     }
-
-//    public static void question(int text) {
-//        System.out.println("Question: " + text);
-////        return "Question: " + text;
-//    }
-//    public static String answer() {
-//        System.out.print("Your answer: ");
-//        Scanner scanner = new Scanner(System.in);
-//        String userChoice = scanner.nextLine();
-//        return userChoice;
-//    }
-//    public static void answerHandler(String userAnswer, String isEven) {
-//
-//        if (isEven.equals(userAnswer)) {
-//            System.out.println("Correct");
-//            successfulAttemptCount++;
-//        } else {
-//            System.out.println("'" + userChoice + "'" + " is wrong answer ;(. Correct answer was " + "'" + isEven + "'");
-//            System.out.println("Let's try again, " + Cli.getUserName() + "!");
-//            break;
-//        }
-//    }
 }

@@ -1,7 +1,11 @@
 package hexlet.code.games;
 
 public class Prime {
-    public static void exercise() {
+    private static String name = "Prime";
+
+    public static String getName() {return name;}
+
+    public static void printExercise() {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
     public static String question() {

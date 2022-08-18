@@ -4,7 +4,11 @@ import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 public class Even {
-    public static void exercise() {
+    private static String name = "Even";
+
+    public static String getName() {return name;}
+
+    public static void printExercise() {
         System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
     }
     public static String question() {

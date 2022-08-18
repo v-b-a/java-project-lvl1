@@ -1,7 +1,11 @@
 package hexlet.code.games;
 
 public class Progression {
-    public static void exercise() {
+    private static String name = "Progression";
+
+    public static String getName() {return name;}
+
+    public static void printExercise() {
         System.out.println("What number is missing in the progression?");
     }
 

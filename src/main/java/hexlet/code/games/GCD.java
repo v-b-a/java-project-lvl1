@@ -1,7 +1,11 @@
 package hexlet.code.games;
 
 public class GCD {
-    public static void exercise() {
+    private static String name = "GCD";
+
+    public static String getName() {return name;}
+
+    public static void printExercise() {
         System.out.println("Find the greatest common divisor of given numbers.\n");
     }
     public static String question() {
