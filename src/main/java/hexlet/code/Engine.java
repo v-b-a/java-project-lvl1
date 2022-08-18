@@ -56,7 +56,7 @@ public class Engine {
                 break;
             }
         }
-        if (currentRound == 3) {
+        if (currentRound == 4) {
             System.out.println("Congratulations, " + Cli.getUserName() + "!");
         }
     }

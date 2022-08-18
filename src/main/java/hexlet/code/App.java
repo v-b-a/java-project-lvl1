@@ -20,7 +20,7 @@ public class App {
         } else if (userChoice == 0) {
         } else {
             Cli.greetingUser();
-            Engine.game(menuItems[userChoice]);
+            Engine.game(menuItems[userChoice - 1]);
         }
     }
 }
