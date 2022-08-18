@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import hexlet.code.games.Even;
+
 import java.util.Scanner;
 
 public class App {
@@ -7,6 +9,8 @@ public class App {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
+        System.out.println("3 - Calc");
+        System.out.println("4 - GCD");
         System.out.println("0 - Exit");
         Scanner scanner = new Scanner(System.in);
         int gameNumber = scanner.nextInt();
@@ -15,9 +19,9 @@ public class App {
         System.out.println("Welcome to the Brain Games!");
         if (gameNumber == 1) {
             Cli.greetingUser();
-        } else if (gameNumber == 2) {
+        } else if (gameNumber == 2 || gameNumber == 3 || gameNumber == 4) {
             Cli.greetingUser();
-            Even.game();
+            Engine.game(gameNumber);
         }
     }
 }
