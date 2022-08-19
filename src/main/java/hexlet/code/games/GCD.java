@@ -1,11 +1,10 @@
 package hexlet.code.games;
 
 public class GCD {
-    static int roundingNumber = 100;
-    private static final String name = "GCD";
+    private static final String gameName = "GCD";
 
-    public static String getName() {
-        return name;
+    public static String getGameName() {
+        return gameName;
     }
 
     public static void printExercise() {
@@ -13,6 +12,7 @@ public class GCD {
     }
 
     public static String question() {
+        int roundingNumber = 100;
         int randomNumber1 = (int) Math.floor(Math.random() * roundingNumber);
         int randomNumber2 = (int) Math.floor(Math.random() * roundingNumber);
         int dcgNumber = 0;

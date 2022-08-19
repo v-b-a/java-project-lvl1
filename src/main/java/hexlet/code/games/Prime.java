@@ -1,11 +1,10 @@
 package hexlet.code.games;
 
 public class Prime {
-    static int roundingNumber = 100;
-    private static final String name = "Prime";
+    private static final String gameName = "Prime";
 
-    public static String getName() {
-        return name;
+    public static String getGameName() {
+        return gameName;
     }
 
     public static void printExercise() {
@@ -13,6 +12,7 @@ public class Prime {
     }
 
     public static String question() {
+        int roundingNumber = 100;
         int randomNumber = (int) Math.floor(Math.random() * roundingNumber);
         int[] resultArray = new int[2];
         int resultArrayIndex = 0;

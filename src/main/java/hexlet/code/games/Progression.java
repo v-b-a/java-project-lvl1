@@ -1,16 +1,18 @@
 package hexlet.code.games;
 
 public class Progression {
-    static int roundingNumber = 10;
-    private static final String name = "Progression";
+    private static final String gameName = "Progression";
 
-    public static String getName() {return name;}
+    public static String getGameName() {
+        return gameName;
+    }
 
     public static void printExercise() {
         System.out.println("What number is missing in the progression?");
     }
 
     public static String question() {
+        int roundingNumber = 10;
         int startProgression = (int) Math.floor(Math.random() * (roundingNumber - 1 + 1) + 1);
         int stepProgression = (int) Math.floor(Math.random() * (roundingNumber - 1 + 1) + 1);
         int randomIndex = (int) Math.floor(Math.random() * roundingNumber);

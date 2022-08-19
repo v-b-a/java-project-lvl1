@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
-        String[] menuItems = {Cli.getName(), Even.getName(), Calc.getName(),
-                GCD.getName(), Progression.getName(), Prime.getName(), "Exit"};
+        String[] menuItems = {Cli.getGameName(), Even.getGameName(), Calc.getGameName(),
+                GCD.getGameName(), Progression.getGameName(), Prime.getGameName(), "Exit"};
         for (int i = 1; i <= menuItems.length; i++) {
             System.out.println(i + " - " + menuItems[i - 1]);
         }

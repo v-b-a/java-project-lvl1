@@ -1,11 +1,10 @@
 package hexlet.code.games;
 
 public class Even {
-    static int roundingNumber = 100;
-    private static final String name = "Even";
+    private static final String gameName = "Even";
 
-    public static String getName() {
-        return name;
+    public static String getGameName() {
+        return gameName;
     }
 
     public static void printExercise() {
@@ -13,6 +12,7 @@ public class Even {
     }
 
     public static String question() {
+        int roundingNumber = 100;
         int randomNumber = (int) Math.floor(Math.random() * roundingNumber);
         System.out.println("Question: " + randomNumber);
         return randomNumber % 2 == 0 ? "yes" : "no";

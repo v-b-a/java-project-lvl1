@@ -3,15 +3,15 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Cli {
-    private static final String name = "Greet";
+    private static final String gameName = "Greet";
     private static String userName;
 
     public static String getUserName() {
         return userName;
     }
 
-    public static String getName() {
-        return name;
+    public static String getGameName() {
+        return gameName;
     }
 
     public static void greetingUser() {
