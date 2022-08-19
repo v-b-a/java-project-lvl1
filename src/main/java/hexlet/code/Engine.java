@@ -10,10 +10,10 @@ import java.util.Scanner;
 
 public class Engine {
     private static int currentRound = 0;
-    static final int countOfRound = 3;
+    static final int COUNT_OF_ROUND = 3;
 
     public static void game(String gameName) {
-        String correctAnswer;
+        String correctAnswer = "1";
         switch (gameName) {
             case "Even" -> {
                 Even.printExercise();
@@ -35,9 +35,8 @@ public class Engine {
                 Prime.printExercise();
                 correctAnswer = Prime.question();
             }
-            default -> correctAnswer = " ";
         }
-        while (currentRound < countOfRound) {
+        while (currentRound < COUNT_OF_ROUND) {
             System.out.print("Your answer: ");
             Scanner scanner = new Scanner(System.in);
             String userAnswer = scanner.nextLine();
@@ -52,7 +51,7 @@ public class Engine {
                 break;
             }
         }
-        if (currentRound == countOfRound) {
+        if (currentRound == COUNT_OF_ROUND) {
             System.out.println("Congratulations, " + Cli.getUserName() + "!");
         }
     }

@@ -1,11 +1,11 @@
 package hexlet.code.games;
 
 public class Progression {
-    static final int roundingNumber = 10;
-    private static final String GameName = "Progression";
+    static final int ROUNDING_NUMBER = 10;
+    private static final String GAME_NAME = "Progression";
 
     public static String getGameName() {
-        return GameName;
+        return GAME_NAME;
     }
 
     public static void printExercise() {
@@ -13,10 +13,10 @@ public class Progression {
     }
 
     public static String question() {
-        int startProgression = (int) Math.floor(Math.random() * (roundingNumber - 1 + 1) + 1);
-        int stepProgression = (int) Math.floor(Math.random() * (roundingNumber - 1 + 1) + 1);
-        int randomIndex = (int) Math.floor(Math.random() * roundingNumber);
-        int[] array = new int[roundingNumber];
+        int startProgression = (int) Math.floor(Math.random() * (ROUNDING_NUMBER - 1 + 1) + 1);
+        int stepProgression = (int) Math.floor(Math.random() * (ROUNDING_NUMBER - 1 + 1) + 1);
+        int randomIndex = (int) Math.floor(Math.random() * ROUNDING_NUMBER);
+        int[] array = new int[ROUNDING_NUMBER];
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < array.length; i++) {
             array[i] = startProgression;

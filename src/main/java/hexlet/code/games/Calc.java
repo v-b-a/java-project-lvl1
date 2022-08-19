@@ -1,11 +1,12 @@
 package hexlet.code.games;
 
 public class Calc {
-    static final int maxValue = 3;
-    private static final String GameName = "Calc";
+    static final int MAX_VALUE = 3;
+    private static final String GAME_NAME = "Calc";
+    private static final  int ROUNDING_NUMBER = 100;
 
     public static String getGameName() {
-        return GameName;
+        return GAME_NAME;
     }
 
     public static void printExercise() {
@@ -13,10 +14,9 @@ public class Calc {
     }
 
     public static String question() {
-        int roundingNumber = 100;
-        int randomNumber1 = (int) Math.floor(Math.random() * roundingNumber);
-        int randomNumber2 = (int) Math.floor(Math.random() * roundingNumber);
-        int randomOperationNumber = (int) Math.floor(Math.random() * (maxValue - 1 + 1) + 1);
+        int randomNumber1 = (int) Math.floor(Math.random() * ROUNDING_NUMBER);
+        int randomNumber2 = (int) Math.floor(Math.random() * ROUNDING_NUMBER);
+        int randomOperationNumber = (int) Math.floor(Math.random() * (MAX_VALUE - 1 + 1) + 1);
         String result;
         int correctAnswerInt;
         if (randomOperationNumber == 1) {
