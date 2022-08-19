@@ -1,15 +1,19 @@
 package hexlet.code.games;
 
 public class Prime {
-    private static String name = "Prime";
+    static int roundingNumber = 100;
+    private static final String name = "Prime";
 
-    public static String getName() {return name;}
+    public static String getName() {
+        return name;
+    }
 
     public static void printExercise() {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
+
     public static String question() {
-        int randomNumber = (int) Math.floor(Math.random() * 100);
+        int randomNumber = (int) Math.floor(Math.random() * roundingNumber);
         int[] resultArray = new int[2];
         int resultArrayIndex = 0;
         for (int i = 1; i <= randomNumber; i++) {
@@ -23,7 +27,9 @@ public class Prime {
         }
         System.out.println("Question: " + randomNumber);
         if (resultArray[0] == 1 && resultArray[1] == randomNumber) {
-         return "yes";
-        } else { return "no";}
+            return "yes";
+        } else {
+            return "no";
+        }
     }
 }

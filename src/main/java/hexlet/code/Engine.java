@@ -1,48 +1,36 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
 public class Engine {
+    static int currentRound = 0;
+    static int countOfRound = 3;
+
     public static void game(String gameName) {
-        String correctAnswer = null;
-        int currentRound = 1;
-        int countOfRound = 3;
+        String correctAnswer;
         switch (gameName) {
-            case "Even":
-                Even.printExercise();
-                break;
-            case "Calc":
-                Calc.printExercise();
-                break;
-            case "GCD":
-                GCD.printExercise();
-                break;
-            case "Progression":
-                Progression.printExercise();
-                break;
-            case "Prime":
-                Prime.printExercise();
-                break;
+            case "Even" -> Even.printExercise();
+            case "Calc" -> Calc.printExercise();
+            case "GCD" -> GCD.printExercise();
+            case "Progression" -> Progression.printExercise();
+            case "Prime" -> Prime.printExercise();
+            default -> {
+            }
         }
         while (currentRound <= countOfRound) {
             switch (gameName) {
-                case "Even":
-                    correctAnswer = Even.question();
-                    break;
-                case "Calc":
-                    correctAnswer = Calc.question();
-                    break;
-                case "GCD":
-                    correctAnswer = GCD.question();
-                    break;
-                case "Progression":
-                    correctAnswer = Progression.question();
-                    break;
-                case "Prime":
-                    correctAnswer = Prime.question();
-                    break;
+                case "Even" -> correctAnswer = Even.question();
+                case "Calc" -> correctAnswer = Calc.question();
+                case "GCD" -> correctAnswer = GCD.question();
+                case "Progression" -> correctAnswer = Progression.question();
+                case "Prime" -> correctAnswer = Prime.question();
+                default -> correctAnswer = " ";
             }
             System.out.print("Your answer: ");
             Scanner scanner = new Scanner(System.in);
@@ -51,12 +39,13 @@ public class Engine {
                 System.out.println("Correct");
                 currentRound++;
             } else {
-                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was " + "'" + correctAnswer + "'.");
+                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was " +
+                        "'" + correctAnswer + "'.");
                 System.out.println("Let's try again, " + Cli.getUserName() + "!");
                 break;
             }
         }
-        if (currentRound == 4) {
+        if (currentRound == countOfRound) {
             System.out.println("Congratulations, " + Cli.getUserName() + "!");
         }
     }

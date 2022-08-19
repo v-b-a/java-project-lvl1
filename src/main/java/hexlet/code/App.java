@@ -1,13 +1,18 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
-        String[] menuItems = {Cli.getName(), Even.getName() , Calc.getName(), GCD.getName(), Progression.getName(), Prime.getName(), "Exit"};
+        String[] menuItems = {Cli.getName(), Even.getName(), Calc.getName(),
+                GCD.getName(), Progression.getName(), Prime.getName(), "Exit"};
         for (int i = 1; i <= menuItems.length; i++) {
             System.out.println(i + " - " + menuItems[i - 1]);
         }
@@ -18,6 +23,7 @@ public class App {
         if (userChoice == 1) {
             Cli.greetingUser();
         } else if (userChoice == 0) {
+            return;
         } else {
             Cli.greetingUser();
             Engine.game(menuItems[userChoice - 1]);

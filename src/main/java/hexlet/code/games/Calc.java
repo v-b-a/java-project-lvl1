@@ -1,7 +1,8 @@
 package hexlet.code.games;
 
 public class Calc {
-    private static String name = "Calc";
+    static int roundingNumber = 100;
+    private static final String name = "Calc";
 
     public static String getName() {
         return name;
@@ -12,11 +13,11 @@ public class Calc {
     }
 
     public static String question() {
-        int randomNumber1 = (int) Math.floor(Math.random() * 100);
-        int randomNumber2 = (int) Math.floor(Math.random() * 100);
+        int randomNumber1 = (int) Math.floor(Math.random() * roundingNumber);
+        int randomNumber2 = (int) Math.floor(Math.random() * roundingNumber);
         int randomOperationNumber = (int) Math.floor(Math.random() * (3 - 1 + 1) + 1);
         String result;
-        int correctAnswerInt = 0;
+        int correctAnswerInt;
         if (randomOperationNumber == 1) {
             result = randomNumber1 + " - " + randomNumber2;
             correctAnswerInt = randomNumber1 - randomNumber2;
