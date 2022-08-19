@@ -1,10 +1,10 @@
 package hexlet.code.games;
 
 public class Even {
-    private static final String gameName = "Even";
+    private static final String GameName = "Even";
 
     public static String getGameName() {
-        return gameName;
+        return GameName;
     }
 
     public static void printExercise() {

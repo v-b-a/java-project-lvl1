@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Engine {
     private static int currentRound = 0;
-//    private static int countOfRound = 3;
+    static final int countOfRound = 3;
 
     public static void game(String gameName) {
         String correctAnswer;
@@ -37,7 +37,7 @@ public class Engine {
             }
             default -> correctAnswer = " ";
         }
-        while (currentRound < 3) {
+        while (currentRound < countOfRound) {
             System.out.print("Your answer: ");
             Scanner scanner = new Scanner(System.in);
             String userAnswer = scanner.nextLine();
@@ -52,7 +52,7 @@ public class Engine {
                 break;
             }
         }
-        if (currentRound == 3) {
+        if (currentRound == countOfRound) {
             System.out.println("Congratulations, " + Cli.getUserName() + "!");
         }
     }
