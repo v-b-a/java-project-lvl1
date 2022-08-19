@@ -23,7 +23,7 @@ public class Engine {
             default -> {
             }
         }
-        while (currentRound <= countOfRound) {
+        while (currentRound < countOfRound) {
             switch (gameName) {
                 case "Even" -> correctAnswer = Even.question();
                 case "Calc" -> correctAnswer = Calc.question();
