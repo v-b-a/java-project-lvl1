@@ -13,7 +13,7 @@ public class Engine {
     static final int COUNT_OF_ROUND = 3;
 
     public static void game(String gameName) {
-        String correctAnswer = "1";
+        String correctAnswer;
         switch (gameName) {
             case "Even" -> {
                 Even.printExercise();
@@ -35,6 +35,7 @@ public class Engine {
                 Prime.printExercise();
                 correctAnswer = Prime.question();
             }
+            default -> correctAnswer = "1";
         }
         while (currentRound < COUNT_OF_ROUND) {
             System.out.print("Your answer: ");
