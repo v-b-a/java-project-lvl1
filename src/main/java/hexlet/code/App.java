@@ -11,22 +11,25 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
-        String[] menuItems = {Cli.getGameName(), Even.getGameName(), Calc.getGameName(),
-                GCD.getGameName(), Progression.getGameName(), Prime.getGameName(), "Exit"};
-        for (int i = 1; i <= menuItems.length; i++) {
-            System.out.println(i + " - " + menuItems[i - 1]);
-        }
+        System.out.println("1 - " + Cli.getGameName());
+        System.out.println("2 - " + Even.getGameName());
+        System.out.println("3 - " + Calc.getGameName());
+        System.out.println("4 - " + GCD.getGameName());
+        System.out.println("5 - " + Progression.getGameName());
+        System.out.println("6 - " + Prime.getGameName());
+        System.out.println("0 - Exit");
+
         Scanner scanner = new Scanner(System.in);
         int userChoice = scanner.nextInt();
         System.out.println("Your choice: " + userChoice);
         System.out.println("");
-        if (userChoice == 1) {
-            Cli.greetingUser();
-        } else if (userChoice == 0) {
-            return;
-        } else {
-            Cli.greetingUser();
-            Engine.game(menuItems[userChoice - 1]);
+        switch (userChoice) {
+            case 1 -> Cli.greetingUser();
+            case 2 -> Even.startGame();
+            case 3 -> Calc.startGame();
+            case 4 -> GCD.startGame();
+            case 5 -> Progression.startGame();
+            case 6 -> Prime.startGame();
         }
     }
 }

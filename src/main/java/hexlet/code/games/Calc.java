@@ -1,36 +1,59 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+import hexlet.code.Random;
+
 public class Calc {
-    static final int MAX_VALUE = 3;
+    static final int OPERATIONS_COUNT = 3;
     private static final String GAME_NAME = "Calc";
-    private static final  int ROUNDING_NUMBER = 100;
+    private static final int MAX_CALC_NUMBER = 100;
+    private static String[] questions = generateQuestion();
+    private static String[] answers = validationQuestion(questions);
 
     public static String getGameName() {
         return GAME_NAME;
     }
 
-    public static void printExercise() {
-        System.out.println("What is the result of the expression?");
+    public static void startGame(){
+        Engine.printExercise("What is the result of the expression?");
+        Engine.setQuestion(questions);
+        Engine.setAnswer(answers);
+        Engine.prayGame();
     }
+    private static String[] generateQuestion() {
+        String[] arrayQuestion = new String[Engine.getCountOfRound()];
 
-    public static String question() {
-        int randomNumber1 = (int) Math.floor(Math.random() * ROUNDING_NUMBER);
-        int randomNumber2 = (int) Math.floor(Math.random() * ROUNDING_NUMBER);
-        int randomOperationNumber = (int) Math.floor(Math.random() * (MAX_VALUE - 1 + 1) + 1);
-        String result;
-        int correctAnswerInt;
-        if (randomOperationNumber == 1) {
-            result = randomNumber1 + " - " + randomNumber2;
-            correctAnswerInt = randomNumber1 - randomNumber2;
-        } else if (randomOperationNumber == 2) {
-            result = randomNumber1 + " + " + randomNumber2;
-            correctAnswerInt = randomNumber1 + randomNumber2;
-        } else {
-            result = randomNumber1 + " * " + randomNumber2;
-            correctAnswerInt = randomNumber1 * randomNumber2;
+        for (int i = 0; i < 3; i++) {
+            int randomNumber1 = Random.generateRandomNumber(MAX_CALC_NUMBER);
+            int randomNumber2 = Random.generateRandomNumber(MAX_CALC_NUMBER);
+            int randomOperationNumber = Random.generateRandomNumber(OPERATIONS_COUNT);
+            String result;
+            if (randomOperationNumber == 1) {
+                result = randomNumber1 + " - " + randomNumber2;
+            } else if (randomOperationNumber == 2) {
+                result = randomNumber1 + " + " + randomNumber2;
+            } else {
+                result = randomNumber1 + " * " + randomNumber2;
+            }
+            arrayQuestion[i] = result;
         }
-        System.out.println("Question: " + result);
-        return correctAnswerInt + "";
 
+        return arrayQuestion;
+    }
+    private static String[] validationQuestion(String[] questions) {
+        String[] validAnswer = new String[Engine.getCountOfRound()];
+        int sum;
+        for (int i = 0; i < Engine.getCountOfRound(); i++) {
+            String[] simple = questions[i].split(" ");
+            if (simple[1].equals("-")) {
+                sum = Integer.parseInt(simple[0]) - Integer.parseInt(simple[2]);
+            } else if (simple[1].equals("+")) {
+                sum = Integer.parseInt(simple[0]) + Integer.parseInt(simple[2]);
+            } else {
+                sum = Integer.parseInt(simple[0]) * Integer.parseInt(simple[2]);
+            }
+            validAnswer[i] = sum+"";
+        }
+        return validAnswer;
     }
 }

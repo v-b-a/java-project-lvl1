@@ -1,33 +1,75 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+import hexlet.code.Random;
+
 public class Progression {
-    static final int ROUNDING_NUMBER = 10;
+    static final int countValues = 10;
     private static final String GAME_NAME = "Progression";
+    private static int[] index = getIndex();
+    private static String[] progression = getProgression();
+    private static String[] question = generateQuestion(progression, index);
+    private static String[] answers = validationQuestion(progression, index);
+
 
     public static String getGameName() {
         return GAME_NAME;
     }
 
-    public static void printExercise() {
-        System.out.println("What number is missing in the progression?");
+    public static void startGame() {
+        Engine.printExercise("What number is missing in the progression?");
+        Engine.setQuestion(question);
+        Engine.setAnswer(answers);
+        Engine.prayGame();
     }
 
-    public static String question() {
-        int startProgression = (int) Math.floor(Math.random() * (ROUNDING_NUMBER - 1 + 1) + 1);
-        int stepProgression = (int) Math.floor(Math.random() * (ROUNDING_NUMBER - 1 + 1) + 1);
-        int randomIndex = (int) Math.floor(Math.random() * ROUNDING_NUMBER);
-        int[] array = new int[ROUNDING_NUMBER];
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < array.length; i++) {
-            array[i] = startProgression;
-            startProgression += stepProgression;
-            if (i == randomIndex) {
-                result.append(".. ");
-            } else {
-                result.append(array[i]).append(" ");
+    private static String[] generateQuestion(String[] progression, int[] index) {
+        String[] arrayQuestion = new String[Engine.getCountOfRound()];
+        for (int i = 0; i < Engine.getCountOfRound(); i++) {
+            String[] array = progression[i].split(" ");
+            array[index[i]] = "..";
+            StringBuilder result = new StringBuilder();
+            for (String s : array) {
+                result.append(s).append(" ");
             }
+            arrayQuestion[i] = result.toString();
         }
-        System.out.println("Question: " + result);
-        return array[randomIndex] + "";
+        return arrayQuestion;
+    }
+
+    private static String[] getProgression() {
+        String[] fullNumberArray = new String[Engine.getCountOfRound()];
+        for (int i = 0; i < Engine.getCountOfRound(); i++) {
+            int start = Random.generateRandomNumber(countValues);
+            int step = Random.generateRandomNumber(countValues);
+            int[] array = new int[countValues];
+            StringBuilder result = new StringBuilder();
+            for (int j = 0; j < array.length; j++) {
+                array[j] = start;
+                start += step;
+                result.append(array[j]).append(" ");
+            }
+            fullNumberArray[i] = result.toString();
+
+        }
+        return fullNumberArray;
+    }
+
+    private static int[] getIndex() {
+        int[] indexArray = new int[Engine.getCountOfRound()];
+        for (int i = 0; i < Engine.getCountOfRound(); i++) {
+            int randomIndex = Random.generateRandomNumber(countValues) - 1;
+            indexArray[i] = randomIndex;
+        }
+        return indexArray;
+    }
+
+    private static String[] validationQuestion(String[] progression, int[] index) {
+        String[] validAnswer = new String[Engine.getCountOfRound()];
+        for (int i = 0; i < Engine.getCountOfRound(); i++) {
+            String[] array = progression[i].split(" ");
+            validAnswer[i] = array[index[i]];
+        }
+        return validAnswer;
     }
 }
