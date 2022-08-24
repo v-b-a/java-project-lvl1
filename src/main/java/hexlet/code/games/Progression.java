@@ -4,7 +4,7 @@ import hexlet.code.Engine;
 import hexlet.code.Random;
 
 public class Progression {
-    static final int countValues = 10;
+    static final int COUNT_VALUES = 10;
     private static final String GAME_NAME = "Progression";
     private static int[] index = getIndex();
     private static String[] progression = getProgression();
@@ -23,11 +23,11 @@ public class Progression {
         Engine.prayGame();
     }
 
-    private static String[] generateQuestion(String[] progression, int[] index) {
+    private static String[] generateQuestion(String[] progressionInt, int[] indexInt) {
         String[] arrayQuestion = new String[Engine.getCountOfRound()];
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
-            String[] array = progression[i].split(" ");
-            array[index[i]] = "..";
+            String[] array = progressionInt[i].split(" ");
+            array[indexInt[i]] = "..";
             StringBuilder result = new StringBuilder();
             for (String s : array) {
                 result.append(s).append(" ");
@@ -40,9 +40,9 @@ public class Progression {
     private static String[] getProgression() {
         String[] fullNumberArray = new String[Engine.getCountOfRound()];
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
-            int start = Random.generateRandomNumber(countValues);
-            int step = Random.generateRandomNumber(countValues);
-            int[] array = new int[countValues];
+            int start = Random.generateRandomNumber(COUNT_VALUES);
+            int step = Random.generateRandomNumber(COUNT_VALUES);
+            int[] array = new int[COUNT_VALUES];
             StringBuilder result = new StringBuilder();
             for (int j = 0; j < array.length; j++) {
                 array[j] = start;
@@ -58,17 +58,17 @@ public class Progression {
     private static int[] getIndex() {
         int[] indexArray = new int[Engine.getCountOfRound()];
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
-            int randomIndex = Random.generateRandomNumber(countValues) - 1;
+            int randomIndex = Random.generateRandomNumber(COUNT_VALUES) - 1;
             indexArray[i] = randomIndex;
         }
         return indexArray;
     }
 
-    private static String[] validationQuestion(String[] progression, int[] index) {
+    private static String[] validationQuestion(String[] progressionInt, int[] indexInt) {
         String[] validAnswer = new String[Engine.getCountOfRound()];
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
-            String[] array = progression[i].split(" ");
-            validAnswer[i] = array[index[i]];
+            String[] array = progressionInt[i].split(" ");
+            validAnswer[i] = array[indexInt[i]];
         }
         return validAnswer;
     }

@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Engine {
     static final int COUNT_OF_ROUND = 3;
-    private static String[] questionsString = new String[3];
-    private static String[] validAnswers = new String[3];
+    private static String[] questionsString = new String[COUNT_OF_ROUND];
+    private static String[] validAnswers = new String[COUNT_OF_ROUND];
 
     public static int getCountOfRound() {
         return COUNT_OF_ROUND;
@@ -18,7 +18,7 @@ public class Engine {
     public static void setQuestion(String[] questions) {
         questionsString = questions;
     }
-    public static void setAnswer (String[] answer) {
+    public static void setAnswer(String[] answer) {
         validAnswers = answer;
     }
 

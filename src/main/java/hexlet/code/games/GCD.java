@@ -9,7 +9,7 @@ public class GCD {
     private static String[] questions = generateQuestion();
     private static String[] answers = validationQuestion(questions);
 
-    public static void startGame(){
+    public static void startGame() {
         Engine.printExercise("Find the greatest common divisor of given numbers.");
         Engine.setQuestion(questions);
         Engine.setAnswer(answers);
@@ -24,10 +24,10 @@ public class GCD {
         }
         return arrayQuestion;
     }
-    private static String[] validationQuestion(String[] questions) {
+    private static String[] validationQuestion(String[] question) {
         String[] validAnswer = new String[Engine.getCountOfRound()];
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
-            String[] randomNumber = questions[i].split(" ");
+            String[] randomNumber = question[i].split(" ");
             int dcgNumber = 0;
             int cycleCount = Math.min(Integer.parseInt(randomNumber[0]), Integer.parseInt(randomNumber[1]));
             for (int j = 1; j <= cycleCount; j++) {
@@ -35,7 +35,7 @@ public class GCD {
                     dcgNumber = j;
                 }
             }
-            validAnswer[i] = dcgNumber+"";
+            validAnswer[i] = dcgNumber + "";
         }
         return validAnswer;
     }

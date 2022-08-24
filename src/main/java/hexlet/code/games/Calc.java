@@ -14,7 +14,7 @@ public class Calc {
         return GAME_NAME;
     }
 
-    public static void startGame(){
+    public static void startGame() {
         Engine.printExercise("What is the result of the expression?");
         Engine.setQuestion(questions);
         Engine.setAnswer(answers);
@@ -23,7 +23,7 @@ public class Calc {
     private static String[] generateQuestion() {
         String[] arrayQuestion = new String[Engine.getCountOfRound()];
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < Engine.getCountOfRound(); i++) {
             int randomNumber1 = Random.generateRandomNumber(MAX_CALC_NUMBER);
             int randomNumber2 = Random.generateRandomNumber(MAX_CALC_NUMBER);
             int randomOperationNumber = Random.generateRandomNumber(OPERATIONS_COUNT);
@@ -40,11 +40,11 @@ public class Calc {
 
         return arrayQuestion;
     }
-    private static String[] validationQuestion(String[] questions) {
+    private static String[] validationQuestion(String[] question) {
         String[] validAnswer = new String[Engine.getCountOfRound()];
         int sum;
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
-            String[] simple = questions[i].split(" ");
+            String[] simple = question[i].split(" ");
             if (simple[1].equals("-")) {
                 sum = Integer.parseInt(simple[0]) - Integer.parseInt(simple[2]);
             } else if (simple[1].equals("+")) {
@@ -52,7 +52,7 @@ public class Calc {
             } else {
                 sum = Integer.parseInt(simple[0]) * Integer.parseInt(simple[2]);
             }
-            validAnswer[i] = sum+"";
+            validAnswer[i] = sum + "";
         }
         return validAnswer;
     }

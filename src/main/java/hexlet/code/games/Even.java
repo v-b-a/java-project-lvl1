@@ -29,10 +29,10 @@ public class Even {
         return arrayQuestion;
     }
 
-    private static String[] validationQuestion(String[] questions) {
-        String[] validAnswer = new String[3];
-        for (int i = 0; i < 3; i++) {
-            validAnswer[i] = Integer.parseInt(questions[i]) % 2 == 0 ? "yes" : "no";
+    private static String[] validationQuestion(String[] question) {
+        String[] validAnswer = new String[Engine.getCountOfRound()];
+        for (int i = 0; i < Engine.getCountOfRound(); i++) {
+            validAnswer[i] = Integer.parseInt(question[i]) % 2 == 0 ? "yes" : "no";
         }
         return validAnswer;
     }

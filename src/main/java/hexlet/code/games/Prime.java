@@ -6,16 +6,16 @@ import hexlet.code.Random;
 public class Prime {
     static final int MAX_NUMBER = 100;
     private static final String GAME_NAME = "Prime";
-    private static String[] question = generateQuestion();
-    private static String[] answers = validationQuestion(question);
+    private static String[] questions = generateQuestion();
+    private static String[] answers = validationQuestion(questions);
 
     public static String getGameName() {
         return GAME_NAME;
     }
 
-    public static void startGame(){
+    public static void startGame() {
         Engine.printExercise("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        Engine.setQuestion(question);
+        Engine.setQuestion(questions);
         Engine.setAnswer(answers);
         Engine.prayGame();
     }
