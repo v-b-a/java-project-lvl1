@@ -4,25 +4,17 @@ import java.util.Scanner;
 
 public class Engine {
     static final int COUNT_OF_ROUND = 3;
-    private static String[] questionsString = new String[COUNT_OF_ROUND];
-    private static String[] validAnswers = new String[COUNT_OF_ROUND];
 
     public static int getCountOfRound() {
         return COUNT_OF_ROUND;
     }
+    
     public static void printExercise(String exercise) {
         Cli.greetingUser();
         System.out.println(exercise);
     }
 
-    public static void setQuestion(String[] questions) {
-        questionsString = questions;
-    }
-    public static void setAnswer(String[] answer) {
-        validAnswers = answer;
-    }
-
-    public static void prayGame() {
+    public static void prayGame(String[] questionsString, String[] validAnswers) {
         for (int i = 0; i < COUNT_OF_ROUND; i++) {
             System.out.println("Question: " + questionsString[i]);
             System.out.print("Your answer: ");

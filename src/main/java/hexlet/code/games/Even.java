@@ -6,14 +6,12 @@ import hexlet.code.Random;
 public class Even {
     private static final String GAME_NAME = "Even";
     private static final int MAX_EVEN_NUMBER = 100;
-    private static String[] questions = generateQuestion();
-    private static String[] answers = validationQuestion(questions);
+    private static String[] answers = new String[Engine.getCountOfRound()];
 
     public static void startGame() {
+        String[] questions = generateQuestion();
         Engine.printExercise("Answer 'yes' if number even otherwise answer 'no'.");
-        Engine.setQuestion(questions);
-        Engine.setAnswer(answers);
-        Engine.prayGame();
+        Engine.prayGame(questions, answers);
     }
 
     public static String getGameName() {
@@ -22,20 +20,23 @@ public class Even {
 
     private static String[] generateQuestion() {
         String[] arrayQuestion = new String[Engine.getCountOfRound()];
+        String[] validAnswer = new String[Engine.getCountOfRound()];
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
             int randomNumber = Random.generateRandomNumber(MAX_EVEN_NUMBER);
             arrayQuestion[i] = randomNumber + "";
+            validAnswer[i] = randomNumber % 2 == 0 ? "yes" : "no";
         }
+        answers = validAnswer;
         return arrayQuestion;
     }
 
-    private static String[] validationQuestion(String[] question) {
-        String[] validAnswer = new String[Engine.getCountOfRound()];
-        for (int i = 0; i < Engine.getCountOfRound(); i++) {
-            validAnswer[i] = Integer.parseInt(question[i]) % 2 == 0 ? "yes" : "no";
-        }
-        return validAnswer;
-    }
+//    private static String[] validationQuestion(String[] question) {
+//        String[] validAnswer = new String[Engine.getCountOfRound()];
+//        for (int i = 0; i < Engine.getCountOfRound(); i++) {
+//            validAnswer[i] = Integer.parseInt(question[i]) % 2 == 0 ? "yes" : "no";
+//        }
+//        return validAnswer;
+//    }
 
 }
 
