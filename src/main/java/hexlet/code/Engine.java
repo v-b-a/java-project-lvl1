@@ -8,12 +8,11 @@ public class Engine {
     public static int getCountOfRound() {
         return COUNT_OF_ROUND;
     }
-    
+
     public static void printExercise(String exercise) {
         Cli.greetingUser();
         System.out.println(exercise);
     }
-
     public static void prayGame(String[] questionsString, String[] validAnswers) {
         for (int i = 0; i < COUNT_OF_ROUND; i++) {
             System.out.println("Question: " + questionsString[i]);
