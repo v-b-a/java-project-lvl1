@@ -6,45 +6,39 @@ import hexlet.code.Random;
 public class Progression {
     static final int COUNT_VALUES = 10;
     private static final String GAME_NAME = "Progression";
-    private static String[] answers = new String[Engine.getCountOfRound()];
 
     public static String getGameName() {
         return GAME_NAME;
     }
 
     public static void startGame() {
-        Engine.printExercise("What number is missing in the progression?");
-        int step = Random.generateRandomNumber(COUNT_VALUES);
-//        String[] progression = getProgression(step, COUNT_VALUES);
-        String[] question = generateQuestion();
-        Engine.prayGame(question, answers);
+        String[][] gameData = getGameData();
+        Engine.playGame(gameData, "What number is missing in the progression?");
     }
 
-    private static String[] generateQuestion() {
-        String[] arrayQuestion = new String[Engine.getCountOfRound()];
-        String[] validAnswer = new String[Engine.getCountOfRound()];
+    private static String[][] getGameData() {
+        String[][] gameData = new String[2][Engine.getCountOfRound()];
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
             int step = Random.generateRandomNumber(COUNT_VALUES);
-            String[] progressionInt = getProgression(step, COUNT_VALUES);
+            String[] progressionInt = getProgression(step);
             int randomIndex = Random.generateRandomNumber(COUNT_VALUES) - 1;
             String[] array = progressionInt[i].split(" ");
-            validAnswer[i] = array[randomIndex];
+            gameData[1][i] = array[randomIndex];
             array[randomIndex] = "..";
             StringBuilder result = new StringBuilder();
             for (String s : array) {
                 result.append(s).append(" ");
             }
-            arrayQuestion[i] = result.toString();
+            gameData[0][i] = result.toString();
         }
-        answers = validAnswer;
-        return arrayQuestion;
+        return gameData;
     }
 
-    private static String[] getProgression(int step, int length) {
+    private static String[] getProgression(int step) {
         String[] fullNumberArray = new String[Engine.getCountOfRound()];
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
-            int start = Random.generateRandomNumber(length);
-            int[] array = new int[length];
+            int start = Random.generateRandomNumber(Progression.COUNT_VALUES);
+            int[] array = new int[Progression.COUNT_VALUES];
             StringBuilder result = new StringBuilder();
             for (int j = 0; j < array.length; j++) {
                 array[j] = start;
@@ -55,22 +49,4 @@ public class Progression {
         }
         return fullNumberArray;
     }
-
-//    private static int[] getIndex() {
-//        int[] indexArray = new int[Engine.getCountOfRound()];
-//        for (int i = 0; i < Engine.getCountOfRound(); i++) {
-//            int randomIndex = Random.generateRandomNumber(COUNT_VALUES) - 1;
-//            indexArray[i] = randomIndex;
-//        }
-//        return indexArray;
-//    }
-
-//    private static String[] validationQuestion(String[] progressionInt, int[] indexInt) {
-//        String[] validAnswer = new String[Engine.getCountOfRound()];
-//        for (int i = 0; i < Engine.getCountOfRound(); i++) {
-//            String[] array = progressionInt[i].split(" ");
-//            validAnswer[i] = array[indexInt[i]];
-//        }
-//        return validAnswer;
-//    }
 }
