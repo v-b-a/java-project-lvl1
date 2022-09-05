@@ -18,26 +18,26 @@ public class Calc {
     }
 
     private static String[][] getGameData() {
-        String[][] questionsAndAnswers = new String[2][Engine.getCountOfRound()];
+        String[][] gameData = new String[2][Engine.getCountOfRound()];
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
             int randomNumber1 = Random.generateRandomNumber(MAX_CALC_NUMBER);
             int randomNumber2 = Random.generateRandomNumber(MAX_CALC_NUMBER);
             int randomOperationNumber = Random.generateRandomNumber(OPERATIONS_COUNT);
-            int calc;
-            String result;
+            String question;
+            int correctAnswer;
             if (randomOperationNumber == 1) {
-                result = randomNumber1 + " - " + randomNumber2;
-                calc = randomNumber1 - randomNumber2;
+                question = randomNumber1 + " - " + randomNumber2;
+                correctAnswer = randomNumber1 - randomNumber2;
             } else if (randomOperationNumber == 2) {
-                result = randomNumber1 + " + " + randomNumber2;
-                calc = randomNumber1 + randomNumber2;
+                question = randomNumber1 + " + " + randomNumber2;
+                correctAnswer = randomNumber1 + randomNumber2;
             } else {
-                result = randomNumber1 + " * " + randomNumber2;
-                calc = randomNumber1 * randomNumber2;
+                question = randomNumber1 + " * " + randomNumber2;
+                correctAnswer = randomNumber1 * randomNumber2;
             }
-            questionsAndAnswers[0][i] = result;
-            questionsAndAnswers[1][i] = calc + "";
+            gameData[0][i] = question;
+            gameData[1][i] = correctAnswer + "";
         }
-        return questionsAndAnswers;
+        return gameData;
     }
 }

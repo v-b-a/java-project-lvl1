@@ -19,11 +19,14 @@ public class Even {
     private static String[][] getGameData() {
         String[][] gameData = new String[2][Engine.getCountOfRound()];
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
-            int randomNumber = Random.generateRandomNumber(MAX_EVEN_NUMBER);
-            gameData[0][i] = randomNumber + "";
-            gameData[1][i] = randomNumber % 2 == 0 ? "yes" : "no";
+            int questionNumber = Random.generateRandomNumber(MAX_EVEN_NUMBER);
+            gameData[0][i] = questionNumber + "";
+            gameData[1][i] = checkEven(questionNumber);
         }
         return gameData;
+    }
+    private static String checkEven(int randomNumber) {
+        return randomNumber % 2 == 0 ? "yes" : "no";
     }
 }
 

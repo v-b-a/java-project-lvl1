@@ -17,27 +17,26 @@ public class Prime {
     }
 
     private static String[][] getGameData() {
-        String[][] questionsAndAnswers = new String[2][Engine.getCountOfRound()];
+        String[][] gameData = new String[2][Engine.getCountOfRound()];
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
             int randomNumber = Random.generateRandomNumber(MAX_NUMBER);
-            questionsAndAnswers[0][i] = randomNumber + "";
-            int resultArrayIndex = 0;
-            int[] resultArray = new int[2];
+            gameData[0][i] = randomNumber + "";
+            int index = 0;
+            int[] dividersRandomNumber = new int[2];
             for (int j = 1; j <= randomNumber; j++) {
-                if (resultArray[1] != 0) {
+                if (dividersRandomNumber[1] != 0) {
                     break;
                 }
                 if (randomNumber % j == 0) {
-                    resultArray[resultArrayIndex] = j;
-                    resultArrayIndex++;
+                    dividersRandomNumber[index++] = j;
                 }
             }
-            if (resultArray[0] == 1 && resultArray[1] == randomNumber) {
-                questionsAndAnswers[1][i] = "yes";
+            if (dividersRandomNumber[0] == 1 && dividersRandomNumber[1] == randomNumber) {
+                gameData[1][i] = "yes";
             } else {
-                questionsAndAnswers[1][i] = "no";
+                gameData[1][i] = "no";
             }
         }
-        return questionsAndAnswers;
+        return gameData;
     }
 }
