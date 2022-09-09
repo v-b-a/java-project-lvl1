@@ -40,7 +40,7 @@ public class Progression {
                                                 int lengthProgression) {
         String[] progression = new String[lengthProgression];
         for (int j = 0; j < lengthProgression; j++) {
-            progression[j] = elementProgression+"";
+            progression[j] = elementProgression + "";
             elementProgression += stepProgression;
         }
         return progression;
