@@ -13,19 +13,18 @@ public class Progression {
     }
 
     public static void startGame() {
-        String[][] gameData = getGameData();
+        String[][] gameData = generateGameData();
         Engine.playGame(gameData, "What number is missing in the progression?");
     }
 
-    private static String[][] getGameData() {
+    private static String[][] generateGameData() {
         String[][] gameData = new String[2][Engine.getCountOfRound()];
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
             int stepProgression = Random.generateRandomNumber(MAX_VALUE);
             int elementProgression = Random.generateRandomNumber(MAX_VALUE);
-            String progression = generateProgression(stepProgression,
+            String[] fullProgression = generateProgression(stepProgression,
                     elementProgression, COUNT_VALUES);
             int randomIndex = Random.generateRandomNumber(COUNT_VALUES) - 1;
-            String[] fullProgression = progression.split(" ");
             gameData[1][i] = fullProgression[randomIndex];
             fullProgression[randomIndex] = "..";
             StringBuilder questionProgression = new StringBuilder();
@@ -37,13 +36,13 @@ public class Progression {
         return gameData;
     }
 
-    private static String generateProgression(int stepProgression, int elementProgression,
+    private static String[] generateProgression(int stepProgression, int elementProgression,
                                                 int lengthProgression) {
-        StringBuilder fullProgression = new StringBuilder();
+        String[] progression = new String[lengthProgression];
         for (int j = 0; j < lengthProgression; j++) {
-            fullProgression.append(elementProgression).append(" ");
+            progression[j] = elementProgression+"";
             elementProgression += stepProgression;
         }
-        return fullProgression.toString();
+        return progression;
     }
 }

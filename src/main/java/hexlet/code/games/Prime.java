@@ -12,11 +12,11 @@ public class Prime {
     }
 
     public static void startGame() {
-        String[][] gameData = getGameData();
+        String[][] gameData = generateGameData();
         Engine.playGame(gameData, "Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 
-    private static String[][] getGameData() {
+    private static String[][] generateGameData() {
         String[][] gameData = new String[2][Engine.getCountOfRound()];
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
             int randomNumber = Random.generateRandomNumber(MAX_NUMBER);

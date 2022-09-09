@@ -13,11 +13,11 @@ public class Calc {
     }
 
     public static void startGame() {
-        String[][] gameData = getGameData();
+        String[][] gameData = generateGameData();
         Engine.playGame(gameData, "What is the result of the expression?");
     }
 
-    private static String[][] getGameData() {
+    private static String[][] generateGameData() {
         String[][] gameData = new String[2][Engine.getCountOfRound()];
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
             int randomNumber1 = Random.generateRandomNumber(MAX_CALC_NUMBER);

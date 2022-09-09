@@ -12,11 +12,11 @@ public class GCD {
     }
 
     public static void startGame() {
-        String[][] gameData = getGameData();
+        String[][] gameData = generateGameData();
         Engine.playGame(gameData, "Find the greatest common divisor of given numbers.");
     }
 
-    private static String[][] getGameData() {
+    private static String[][] generateGameData() {
         String[][] gameData = new String[2][Engine.getCountOfRound()];
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
             int dcgNumber = 0;

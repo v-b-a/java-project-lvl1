@@ -8,7 +8,7 @@ public class Even {
     private static final int MAX_EVEN_NUMBER = 100;
 
     public static void startGame() {
-        String[][] gameData = getGameData();
+        String[][] gameData = generateGameData();
         Engine.playGame(gameData, "Answer 'yes' if number even otherwise answer 'no'.");
     }
 
@@ -16,7 +16,7 @@ public class Even {
         return GAME_NAME;
     }
 
-    private static String[][] getGameData() {
+    private static String[][] generateGameData() {
         String[][] gameData = new String[2][Engine.getCountOfRound()];
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
             int questionNumber = Random.generateRandomNumber(MAX_EVEN_NUMBER);
