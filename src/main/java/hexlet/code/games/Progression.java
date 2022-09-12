@@ -18,20 +18,22 @@ public class Progression {
     }
 
     private static String[][] generateGameData() {
-        String[][] gameData = new String[2][Engine.getCountOfRound()];
+        String[] questions = new String[Engine.getCountOfRound()];
+        String[] answers = new String[Engine.getCountOfRound()];
+        String[][] gameData = {questions, answers};
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
             int stepProgression = Random.generateRandomNumber(MAX_VALUE);
             int elementProgression = Random.generateRandomNumber(MAX_VALUE);
             String[] fullProgression = generateProgression(stepProgression,
                     elementProgression, COUNT_VALUES);
             int randomIndex = Random.generateRandomNumber(COUNT_VALUES) - 1;
-            gameData[1][i] = fullProgression[randomIndex];
+            answers[i] = fullProgression[randomIndex];
             fullProgression[randomIndex] = "..";
             StringBuilder questionProgression = new StringBuilder();
             for (String s : fullProgression) {
                 questionProgression.append(s).append(" ");
             }
-            gameData[0][i] = questionProgression.toString();
+            questions[i] = questionProgression.toString();
         }
         return gameData;
     }

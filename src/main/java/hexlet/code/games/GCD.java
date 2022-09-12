@@ -17,20 +17,27 @@ public class GCD {
     }
 
     private static String[][] generateGameData() {
-        String[][] gameData = new String[2][Engine.getCountOfRound()];
+        String[] questions = new String[Engine.getCountOfRound()];
+        String[] answers = new String[Engine.getCountOfRound()];
+        String[][] gameData = {questions, answers};
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
-            int dcgNumber = 0;
             int randomNumber1 = Random.generateRandomNumber(MAX_NUMBER);
             int randomNumber2 = Random.generateRandomNumber(MAX_NUMBER);
-            gameData[0][i] = randomNumber1 + " " + randomNumber2;
-            int cycleCount = Math.min(randomNumber1, randomNumber2);
-            for (int j = 1; j <= cycleCount; j++) {
-                if (randomNumber1 % j == 0 && randomNumber2 % j == 0) {
-                    dcgNumber = j;
-                }
-            }
-            gameData[1][i] = dcgNumber + "";
+            questions[i] = randomNumber1 + " " + randomNumber2;
+            int dcgNumber = calculateDCGNumber(randomNumber1, randomNumber2);
+            answers[i] = dcgNumber + "";
         }
         return gameData;
+    }
+
+    private static int calculateDCGNumber(int randomNumber1, int randomNumber2) {
+        int cycleCount = Math.min(randomNumber1, randomNumber2);
+        int dcgNumber = 0;
+        for (int i = 1; i <= cycleCount; i++) {
+            if (randomNumber1 % i == 0 && randomNumber2 % i == 0) {
+                dcgNumber = i;
+            }
+        }
+        return dcgNumber;
     }
 }

@@ -17,26 +17,25 @@ public class Prime {
     }
 
     private static String[][] generateGameData() {
-        String[][] gameData = new String[2][Engine.getCountOfRound()];
+        String[] questions = new String[Engine.getCountOfRound()];
+        String[] answers = new String[Engine.getCountOfRound()];
+        String[][] gameData = {questions, answers};
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
             int randomNumber = Random.generateRandomNumber(MAX_NUMBER);
-            gameData[0][i] = randomNumber + "";
-            int index = 0;
-            int[] dividersRandomNumber = new int[2];
-            for (int j = 1; j <= randomNumber; j++) {
-                if (dividersRandomNumber[1] != 0) {
-                    break;
-                }
-                if (randomNumber % j == 0) {
-                    dividersRandomNumber[index++] = j;
-                }
-            }
-            if (dividersRandomNumber[0] == 1 && dividersRandomNumber[1] == randomNumber) {
-                gameData[1][i] = "yes";
-            } else {
-                gameData[1][i] = "no";
-            }
+            questions[i] = randomNumber + "";
+            answers[i] = checkNumberIsPrime(randomNumber);
         }
         return gameData;
+    }
+
+    private static String checkNumberIsPrime(int randomNumber) {
+        int index = 0;
+        int[] divisorRandomNumber = new int[2];
+        for (int i = 1; i <= randomNumber; i++) {
+            if (randomNumber % i == 0 && index < 2) {
+                divisorRandomNumber[index++] = i;
+            }
+        }
+        return divisorRandomNumber[1] == randomNumber ? "yes" : "no";
     }
 }

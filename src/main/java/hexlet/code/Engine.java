@@ -10,18 +10,20 @@ public class Engine {
     }
 
     public static void playGame(String[][] gameData, String exercise) {
+        String[] questions = gameData[0];
+        String[] answers = gameData[1];
         Cli.greetingUser();
         System.out.println(exercise);
         for (int i = 0; i < COUNT_OF_ROUND; i++) {
-            System.out.println("Question: " + gameData[0][i]);
+            System.out.println("Question: " + questions[i]);
             System.out.print("Your answer: ");
             Scanner scanner = new Scanner(System.in);
             String userAnswer = scanner.nextLine();
-            if (gameData[1][i].equals(userAnswer)) {
+            if (answers[i].equals(userAnswer)) {
                 System.out.println("Correct");
             } else {
                 System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was "
-                        + "'" + gameData[1][i] + "'.");
+                        + "'" + answers[i] + "'.");
                 System.out.println("Let's try again, " + Cli.getUserName() + "!");
                 break;
             }

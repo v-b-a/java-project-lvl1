@@ -18,25 +18,31 @@ public class Calc {
     }
 
     private static String[][] generateGameData() {
-        String[][] gameData = new String[2][Engine.getCountOfRound()];
+        String[] questions = new String[Engine.getCountOfRound()];
+        String[] answers = new String[Engine.getCountOfRound()];
+        String[][] gameData = {questions, answers};
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
             int randomNumber1 = Random.generateRandomNumber(MAX_CALC_NUMBER);
             int randomNumber2 = Random.generateRandomNumber(MAX_CALC_NUMBER);
-            int randomOperationNumber = Random.generateRandomNumber(OPERATIONS_COUNT);
+            int operationNumber = Random.generateRandomNumber(OPERATIONS_COUNT);
             String question;
-            int correctAnswer;
-            if (randomOperationNumber == 1) {
-                question = randomNumber1 + " - " + randomNumber2;
-                correctAnswer = randomNumber1 - randomNumber2;
-            } else if (randomOperationNumber == 2) {
-                question = randomNumber1 + " + " + randomNumber2;
-                correctAnswer = randomNumber1 + randomNumber2;
-            } else {
-                question = randomNumber1 + " * " + randomNumber2;
-                correctAnswer = randomNumber1 * randomNumber2;
+            int answer;
+            switch (operationNumber) {
+                case (1) -> {
+                    question = randomNumber1 + " - " + randomNumber2;
+                    answer = randomNumber1 - randomNumber2;
+                }
+                case (2) -> {
+                    question = randomNumber1 + " + " + randomNumber2;
+                    answer = randomNumber1 + randomNumber2;
+                }
+                default -> {
+                    question = randomNumber1 + " * " + randomNumber2;
+                    answer = randomNumber1 * randomNumber2;
+                }
             }
-            gameData[0][i] = question;
-            gameData[1][i] = correctAnswer + "";
+            questions[i] = question;
+            answers[i] = answer + "";
         }
         return gameData;
     }
