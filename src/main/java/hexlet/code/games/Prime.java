@@ -6,6 +6,7 @@ import hexlet.code.Random;
 public class Prime {
     static final int MAX_NUMBER = 100;
     private static final String GAME_NAME = "Prime";
+    private static final String GAME_DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static String getGameName() {
         return GAME_NAME;
@@ -13,7 +14,7 @@ public class Prime {
 
     public static void startGame() {
         String[][] gameData = generateGameData();
-        Engine.playGame(gameData, "Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        Engine.playGame(gameData, GAME_DESCRIPTION);
     }
 
     private static String[][] generateGameData() {
@@ -23,19 +24,18 @@ public class Prime {
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
             int randomNumber = Random.generateRandomNumber(MAX_NUMBER);
             questions[i] = randomNumber + "";
-            answers[i] = checkNumberIsPrime(randomNumber);
+            answers[i] = isPrime(randomNumber) ? "yes" : "no";
         }
         return gameData;
     }
 
-    private static String checkNumberIsPrime(int randomNumber) {
-        int index = 0;
-        int[] divisorRandomNumber = new int[2];
-        for (int i = 1; i <= randomNumber; i++) {
-            if (randomNumber % i == 0 && index < 2) {
-                divisorRandomNumber[index++] = i;
+    private static boolean isPrime(int number) {
+        int divisor = 0;
+        for (int j = 2; j <= number; j++) {
+            if (number % j == 0 && divisor == 0) {
+                divisor = j;
             }
         }
-        return divisorRandomNumber[1] == randomNumber ? "yes" : "no";
+        return divisor == number;
     }
 }

@@ -6,10 +6,11 @@ import hexlet.code.Random;
 public class Even {
     private static final String GAME_NAME = "Even";
     private static final int MAX_EVEN_NUMBER = 100;
+    private static final String GAME_DESCRIPTION = "Answer 'yes' if number even otherwise answer 'no'.";
 
     public static void startGame() {
         String[][] gameData = generateGameData();
-        Engine.playGame(gameData, "Answer 'yes' if number even otherwise answer 'no'.");
+        Engine.playGame(gameData, GAME_DESCRIPTION);
     }
 
     public static String getGameName() {
@@ -21,15 +22,14 @@ public class Even {
         String[] answers = new String[Engine.getCountOfRound()];
         String[][] gameData = {questions, answers};
         for (int i = 0; i < Engine.getCountOfRound(); i++) {
-            int questionNumber = Random.generateRandomNumber(MAX_EVEN_NUMBER);
-            questions[i] = questionNumber + "";
-            answers[i] = checkEven(questionNumber);
+            int randomNumber = Random.generateRandomNumber(MAX_EVEN_NUMBER);
+            questions[i] = randomNumber + "";
+            answers[i] = isEven(randomNumber) ? "yes" : "no";
         }
         return gameData;
     }
-
-    private static String checkEven(int randomNumber) {
-        return randomNumber % 2 == 0 ? "yes" : "no";
+    private static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }
 

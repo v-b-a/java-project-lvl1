@@ -7,6 +7,7 @@ public class Progression {
     static final int COUNT_VALUES = 10;
     static final int MAX_VALUE = 10;
     private static final String GAME_NAME = "Progression";
+    private static final String GAME_DESCRIPTION = "What number is missing in the progression?";
 
     public static String getGameName() {
         return GAME_NAME;
@@ -14,7 +15,7 @@ public class Progression {
 
     public static void startGame() {
         String[][] gameData = generateGameData();
-        Engine.playGame(gameData, "What number is missing in the progression?");
+        Engine.playGame(gameData, GAME_DESCRIPTION);
     }
 
     private static String[][] generateGameData() {

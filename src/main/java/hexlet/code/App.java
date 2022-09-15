@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - " + Cli.getGameName());
         System.out.println("2 - " + Even.getGameName());
@@ -21,8 +21,7 @@ public class App {
 
         Scanner scanner = new Scanner(System.in);
         String userChoice = scanner.nextLine();
-        System.out.println("Your choice: " + userChoice);
-        System.out.println("");
+        System.out.println("Your choice: " + userChoice + "\n");
         switch (userChoice) {
             case "1" -> Cli.greetingUser();
             case "2" -> Even.startGame();
@@ -30,9 +29,7 @@ public class App {
             case "4" -> GCD.startGame();
             case "5" -> Progression.startGame();
             case "6" -> Prime.startGame();
-            default -> {
-                return;
-            }
+            default -> throw new Exception("Unknown number value: " + userChoice);
         }
     }
 }

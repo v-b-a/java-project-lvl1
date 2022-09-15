@@ -6,6 +6,7 @@ import hexlet.code.Random;
 public class GCD {
     private static final String GAME_NAME = "GCD";
     static final int MAX_NUMBER = 100;
+    private static final String GAME_DESCRIPTION = "Find the greatest common divisor of given numbers.";
 
     public static String getGameName() {
         return GAME_NAME;
@@ -13,7 +14,7 @@ public class GCD {
 
     public static void startGame() {
         String[][] gameData = generateGameData();
-        Engine.playGame(gameData, "Find the greatest common divisor of given numbers.");
+        Engine.playGame(gameData, GAME_DESCRIPTION);
     }
 
     private static String[][] generateGameData() {

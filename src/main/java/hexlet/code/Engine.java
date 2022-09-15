@@ -9,11 +9,11 @@ public class Engine {
         return COUNT_OF_ROUND;
     }
 
-    public static void playGame(String[][] gameData, String exercise) {
+    public static void playGame(String[][] gameData, String gameDescription) {
         String[] questions = gameData[0];
         String[] answers = gameData[1];
         Cli.greetingUser();
-        System.out.println(exercise);
+        System.out.println(gameDescription);
         for (int i = 0; i < COUNT_OF_ROUND; i++) {
             System.out.println("Question: " + questions[i]);
             System.out.print("Your answer: ");
@@ -27,8 +27,10 @@ public class Engine {
                 System.out.println("Let's try again, " + Cli.getUserName() + "!");
                 break;
             }
+            if (i == 2) {
+                System.out.println("Congratulations, " + Cli.getUserName() + "!");
+            }
         }
-        System.out.println("Congratulations, " + Cli.getUserName() + "!");
     }
 }
 
